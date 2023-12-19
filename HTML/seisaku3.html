@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+
 <head>
     <meta charset="UTF-8">
     <title>防災宝典</title>
@@ -16,6 +17,7 @@
         padding-bottom: 50px;
     }
 
+
     .container {
         max-width: 800px;
         margin: 20px auto;
@@ -25,6 +27,7 @@
         overflow: hidden;
     }
 
+
     .card {
         margin: 20px;
         border: 1px solid #ddd;
@@ -33,9 +36,11 @@
         transition: transform 0.3s;
     }
 
+
     .card:hover {
         transform: scale(1.03);
     }
+
 
     .card-header {
         background-color: green;
@@ -46,9 +51,11 @@
         align-items: center;
     }
 
+
     .card-body {
         padding: 15px;
     }
+
 
     #username-input,
     #title-input,
@@ -63,6 +70,7 @@
         box-sizing: border-box;
     }
 
+
     #send-button {
         background-color: green;
         color: #fff;
@@ -74,10 +82,40 @@
         margin: 0 auto;
         /* 中央に寄せるスタイル */
     }
-    #send-button:hover{
+
+
+    #send-button:hover {
         background-color: #135722;
     }
     
+#agree-checkbox {
+    
+    /* 不要なマージンやパディングを削除 */
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* チェックボックスとテキストを中央に寄せる */
+#agree-checkbox + label {
+    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 180px;
+}
+
+/* 利用規約テキストのスタイル */
+#agree-checkbox + label::before {
+    /* 不要なスペースを削除 */
+    
+    /* チェックボックスとのスペースを調整 */
+    margin-right: 5px;
+}
+
+
+
+   
+
     .terms {
         background-color: papayawhip;
         color: black;
@@ -92,10 +130,12 @@
         /* 最初は非表示 */
     }
 
+
     .terms p {
         font-size: 18px;
         margin-bottom: 10px;
     }
+
 
     .terms ol,
     .terms ul {
@@ -104,30 +144,38 @@
         margin: 0;
     }
 
+
     .terms li {
         margin-bottom: 10px;
     }
+
 
     .terms ul ul {
         margin-top: 5px;
     }
 
+
     .toggle-button {
         cursor: pointer;
-        color: #007bff; /* トグルボタンのテキストカラーを青に変更 */
+        color: #007bff;
+        /* トグルボタンのテキストカラーを青に変更 */
         text-decoration: underline;
         display: block;
         margin-top: 10px;
         transition: color 0.3s;
     }
 
+
     .toggle-button:hover {
-        color: #0056b3; /* ホバー時のテキストカラーを濃い青に変更 */
+        color: #0056b3;
+        /* ホバー時のテキストカラーを濃い青に変更 */
     }
+
 
     .reply-form {
         margin-top: 10px;
     }
+
 
     .reply-input,
     .reply-username-input,
@@ -140,26 +188,38 @@
         box-sizing: border-box;
     }
 
+
     .reply-button {
-        background-color: #28a745; /* 緑に変更 */
+        background-color: #28a745;
+        /* 緑に変更 */
         color: #fff;
-        border: 2px solid #28a745; /* ボーダーも変更 */
+        border: 2px solid #28a745;
+        /* ボーダーも変更 */
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
     }
+
+
     .card.resolved {
-    border-color: blue; /* 解決済みのボーダーカラー */
-    background-color: gray; /* 解決済みの背景カラー */
-}
+        border-color: blue;
+        /* 解決済みのボーダーカラー */
+        background-color: gray;
+        /* 解決済みの背景カラー */
+    }
+
+
 
 
     .reply-button:hover {
-        background-color: #218838; /* ホバー時の色も変更 */
+        background-color: #218838;
+        /* ホバー時の色も変更 */
         border-color: #218838;
     }
-    </style>
+</style>
+
+
 
 
 <body>
@@ -184,6 +244,7 @@
         <h2>ボランティア募集掲示板</h2>
         <div id="messages"></div>
 
+
         <form id="message-form">
             <input type="text" id="title-input" placeholder="募集内容を入力してください">
             <input type="text" id="username-input" placeholder="ユーザー名を入力してください">
@@ -191,6 +252,13 @@
             <input type="text" id="location-input" placeholder="場所を入力してください">
             <textarea id="message-input" placeholder="募集内容について詳しく入力してください"></textarea>
             <button type="button" id="send-button" onclick="sendMessage()">送信</button>
+            <div style="text-align: center; margin-top: 10px;">
+                <label for="agree-checkbox">
+                    <input type="checkbox" id="agree-checkbox">利用規約に同意する
+                </label>
+            </div>
+            
+
         </form>
         <div class="toggle-button" onclick="toggleTerms()">利用規約を表示/非表示</div>
         <div class="terms" id="terms">
@@ -229,8 +297,11 @@
 
 
 
+
+
+
     <script>
-         function sendMessage() {
+       function sendMessage() {
             var usernameInput = document.getElementById('username-input');
             var titleInput = document.getElementById('title-input');
             var locationInput = document.getElementById('location-input');
@@ -239,6 +310,14 @@
             var title = titleInput.value;
             var location = locationInput.value;
             var message = messageInput.value;
+
+
+            // チェックボックスの状態を確認
+            var agreeCheckbox = document.getElementById('agree-checkbox');
+            if (!agreeCheckbox.checked) {
+            alert('利用規約に同意しないとメッセージを送信できません。');
+            return;
+            }
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'save_data.php', true);
@@ -249,11 +328,13 @@
                 '&message=' + encodeURIComponent(message);
             xhr.send(data);
 
+
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     alert(xhr.responseText);
                 }
             };
+
 
             if (username.trim() !== '' && title.trim() !== '' && location.trim() !== '' && message.trim() !== '') {
                 var messagesContainer = document.getElementById('messages');
@@ -261,19 +342,23 @@
                 card.className = 'card';
                 var messageId = 'message' + Date.now();
 
+
                 // タイトル、ユーザー名、場所を表示
                 var cardHeader = document.createElement('div');
                 cardHeader.className = 'card-header';
                 cardHeader.textContent = title + ' - ' + username;
+
 
                 // 場所の表示を追加
                 var locationParagraph = document.createElement('p');
                 locationParagraph.className = 'location-paragraph';
                 locationParagraph.textContent = '場所: ' + location;
 
+
                 var cardBody = document.createElement('div');
                 cardBody.className = 'card-body';
                 cardBody.textContent = message;
+
 
                 // 投稿内容を表示する部分の色を変更するボタン
                 var resolveButton = document.createElement('button');
@@ -283,6 +368,7 @@
                     toggleResolveStatus(messageId);
                 };
 
+
                 var replyButton = document.createElement('div');
                 replyButton.className = 'toggle-button';
                 replyButton.textContent = '返信';
@@ -290,22 +376,27 @@
                     showReplyForm(username, messageId);
                 };
 
+
                 card.appendChild(cardHeader);
                 card.appendChild(locationParagraph);
                 card.appendChild(cardBody);
                 card.appendChild(resolveButton);
                 card.appendChild(replyButton);
 
+
                 // Set a unique ID to the card for later reference
                 card.id = messageId;
 
+
                 messagesContainer.appendChild(card);
+
 
                 // メッセージを追加したら、全ての入力欄をクリア
                 usernameInput.value = '';
                 titleInput.value = '';
                 locationInput.value = '';
                 messageInput.value = '';
+
 
                 // メッセージが追加されたら、一番下にスクロール
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -315,21 +406,52 @@
             var messageContainer = document.getElementById(messageId);
             var resolveButton = messageContainer.querySelector('.resolve-button');
 
+
             if (messageContainer.classList.contains('resolved')) {
                 return;
             }
             // 解決表示ボタンのテキストを変更
             resolveButton.textContent = (resolveButton.textContent === '解決表示') ? '解決済み' : '解決済み';
 
+
             // 解決表示のスタイルを切り替え
             messageContainer.classList.toggle('resolved');
 
-            resolveButton.disabled = true;
-        
-        }
 
-  
-        
+            resolveButton.disabled = true;
+
+
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+    var agreeCheckbox = document.getElementById('agree-checkbox');
+    var terms = document.getElementById('terms');
+
+    // チェックボックスの状態を初期化
+    agreeCheckbox.disabled = true;
+
+    // チェックボックスの状態を確認するための関数
+    function checkAgreeCheckboxState() {
+        // 利用規約が最下部にスクロールされたかを判定
+        var isScrolledToBottom = terms.scrollHeight - terms.clientHeight <= terms.scrollTop + 1;
+
+        // チェックボックスの状態を更新
+        agreeCheckbox.disabled = !isScrolledToBottom;
+    }
+
+    // 利用規約が表示されている場合にスクロール位置を確認し、チェックボックスの状態を更新
+    if (terms) {
+        terms.addEventListener('scroll', function () {
+            checkAgreeCheckboxState();
+        });
+    }
+});
+
+
+
+
+
+
+
 
 
         function toggleTerms() {
@@ -337,8 +459,10 @@
             terms.style.display = (terms.style.display === 'none' || terms.style.display === '') ? 'block' : 'none';
         }
 
+
         function showReplyForm(username, messageId) {
             var messageContainer = document.getElementById(messageId);
+
 
             // 返信フォームが既に表示されているか確認
             var existingReplyForm = messageContainer.querySelector('.reply-form');
@@ -347,14 +471,17 @@
                 var replyForm = document.createElement('div');
                 replyForm.className = 'reply-form';
 
+
                 var replyInput = document.createElement('textarea');
                 replyInput.className = 'reply-input';
                 replyInput.placeholder = 'ここに返信を入力してください';
+
 
                 var replyUsernameInput = document.createElement('input');
                 replyUsernameInput.id = 'reply-username-input';
                 replyUsernameInput.type = 'text';
                 replyUsernameInput.placeholder = 'ユーザー名を入力してください';
+
 
                 var replyButton = document.createElement('button');
                 replyButton.className = 'reply-button';
@@ -363,17 +490,21 @@
                     sendReply(replyUsernameInput.value, replyInput.value, messageId);
                 };
 
+
                 replyForm.appendChild(replyUsernameInput);
                 replyForm.appendChild(replyInput);
                 replyForm.appendChild(replyButton);
 
+
                 // 返信フォームを表示
                 replyForm.style.display = 'block';
+
 
                 // メッセージコンテナに追加
                 messageContainer.appendChild(replyForm);
             }
         }
+
 
         function sendReply(username, replyMessage, messageId) {
             var messagesContainer = document.getElementById('messages');
@@ -381,19 +512,24 @@
             reply.className = 'reply-message';
             reply.textContent = username + ' からの返信: ' + replyMessage;
 
+
             // 返信メッセージを対象のメッセージの下に追加
             var messageContainer = document.getElementById(messageId);
             messageContainer.appendChild(reply);
 
+
             // 返信フォームを非表示にする
             hideReplyForm(messageId);
         }
+
 
         function hideReplyForm(messageId) {
             // 返信フォームを非表示にするコード
             var replyForm = document.getElementById(messageId).querySelector('.reply-form');
             if (replyForm) {
                 replyForm.remove();
+  
+
             }
         }
     </script>

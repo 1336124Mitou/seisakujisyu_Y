@@ -156,11 +156,7 @@ section {
 }
 
 /* 投稿フォーム */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
+
 
 textarea,
 input[type="file"],
