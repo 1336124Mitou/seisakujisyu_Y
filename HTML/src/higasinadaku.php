@@ -25,6 +25,7 @@ $fire = isset($_POST['fire']) ? $_POST['fire'] : '';
 $tunami1 = isset($_POST['tunami1']) ? $_POST['tunami1'] : '';
 $petto1 = isset($_POST['petto1']) ? $_POST['petto1'] : '';
 $list = isset($_POST['list']) ? $_POST['list'] : '';
+$map = isset($_POST['map']) ? $_POST['map'] : '';
 
 // リセットボタンの処理
 if (isset($_POST['reset'])){
@@ -244,7 +245,7 @@ $dbh = null;
     <!-- MySQLデータを表示 -->
     <?php foreach ($rec_list_items as $rec) { ?>
         <tr>
-            <td><?php echo $rec['name']; ?></td>
+            <td><a class="name" href=<?php  echo $rec['url']; ?>><?php  echo $rec['name']; ?></a></td>
             <td><?php echo $rec['town']; ?></td>
             <td><?php echo $rec['telephone']; ?></td>
             <!-- 各列に対応するデータベースの列を追加 -->
@@ -307,7 +308,7 @@ $dbh = null;
 <!--MySQLデータを表示-->
 <?php foreach ($rec_list_items1 as $rec) { ?>
 <tr>
-<td><?php echo $rec['name'];?></td>
+<td><a class="name" href=<?php  echo $rec['url']; ?>><?php  echo $rec['name']; ?></a></td>
 <td><?php echo $rec['town'];?></td>
 <td><?php echo $rec['tunami1'];?></td>
 <td><?php echo $rec['fire'];?></td>
