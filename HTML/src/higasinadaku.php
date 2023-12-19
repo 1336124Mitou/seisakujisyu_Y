@@ -124,7 +124,7 @@ $dbh = null;
     <link rel="shortcut icon" href="../../_common/image/ページアイコン.ico"
 </head>
 <body>
-<header>
+    <header>
         <div class="header-container">
             <a href="#">
                 <img src="../../_common/image/logo.png" alt="防災宝典" width="300" height="150">
