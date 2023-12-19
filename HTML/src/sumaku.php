@@ -162,7 +162,7 @@ $dbh = null;
                     <?php endforeach; ?>
                 </select>
             </td>
-            <td><input type="submit" name="search" value="検索"></td>
+            <td><input type="submit" name="search" value="検索" class="btn_22"></td>
         </tr>
     </table>
 </form>

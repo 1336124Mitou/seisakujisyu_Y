@@ -126,7 +126,15 @@ footer {}
 .footer-container {
     padding: 30px 20px 10px 20px;
     background: #000000;
+    
 }
+.footer-container a:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #808080; /* 別の色に変更 */
+}
+
+
     .container {
         max-width: 800px;
         margin: 20px auto;
@@ -457,4 +465,26 @@ input[type=radio] {
     box-shadow: none;
     transform: translate(5px, 5px);
     color: #ff5733; /* 別の色に変更 */
+}
+
+.btn_22 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #008039;
+    border: 3px solid #008039; /* 別の色に変更 */
+    box-shadow: 5px 5px #008039; /* 別の色に変更 */
+    transition: 0.3s ease-in-out;
+}
+
+.btn_22:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #008039; /* 別の色に変更 */
 }
