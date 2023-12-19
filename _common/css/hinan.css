@@ -126,7 +126,15 @@ footer {}
 .footer-container {
     padding: 30px 20px 10px 20px;
     background: #000000;
+    
 }
+.footer-container a:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #808080; /* 別の色に変更 */
+}
+
+
     .container {
         max-width: 800px;
         margin: 20px auto;
@@ -197,7 +205,7 @@ h2 {
 
 
 a:hover {
-    text-decoration: underline;
+
 }
 
 input[type=radio] {
@@ -362,3 +370,121 @@ input[type=radio] {
   input[type="radio"]:checked + label.petto {
     background-color: #0D47A1;
   }
+
+/* ボタンのスタイル */
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn_18 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #27acd9;
+    border: 3px solid #27acd9;
+    box-shadow: 5px 5px #27acd9;
+    transition: 0.3s ease-in-out;
+    margin-right: 10px; /* ボタン間の余白 */
+}
+
+.btn_18:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #27acd9;
+}
+
+.btn_19 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #eb6877; /* 別の色に変更 */
+    border: 3px solid #eb6877; /* 別の色に変更 */
+    box-shadow: 5px 5px #eb6877; /* 別の色に変更 */
+    transition: 0.3s ease-in-out;
+}
+
+.btn_19:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #ff5733; /* 別の色に変更 */
+}
+
+.btn_20 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #27acd9;
+    border: 3px solid #27acd9;
+    box-shadow: 5px 5px #27acd9;
+    transition: 0.3s ease-in-out;
+    margin-right: 10px; /* ボタン間の余白 */
+}
+
+.btn_20:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #27acd9;
+}
+
+.btn_21 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #eb6877; /* 別の色に変更 */
+    border: 3px solid #eb6877; /* 別の色に変更 */
+    box-shadow: 5px 5px #eb6877; /* 別の色に変更 */
+    transition: 0.3s ease-in-out;
+}
+
+.btn_21:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #ff5733; /* 別の色に変更 */
+}
+
+.btn_22 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #008039;
+    border: 3px solid #008039; /* 別の色に変更 */
+    box-shadow: 5px 5px #008039; /* 別の色に変更 */
+    transition: 0.3s ease-in-out;
+}
+
+.btn_22:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #008039; /* 別の色に変更 */
+}

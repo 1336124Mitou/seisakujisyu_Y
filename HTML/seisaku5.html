@@ -27,42 +27,6 @@
             cursor: pointer;
             font-weight: bold;
         }
-
-        .category-items0 {
-            display: none;
-        }
-
-        .category-items1 {
-            display: none;
-        }
-
-        .category-items2 {
-            display: none;
-        }
-
-        .category-items3 {
-            display: none;
-        }
-
-        .category-items4 {
-            display: none;
-        }
-
-        .category-items5 {
-            display: none;
-        }
-
-        .category-items6 {
-            display: none;
-        }
-
-        .category-items7 {
-            display: none;
-        }
-
-        .category-items8 {
-            display: none;
-        }
     </style>
 </head>
 
@@ -90,7 +54,7 @@
             <tr class="category-header0">
                 <th colspan="4">安全グッズ</th>
             </tr>
-            <tr class="category-items0">
+            <tr class="category-items0" id="category-items0">
                 <td width="10"><input type="checkbox" id="coding" name="interest" value="coding" /></td>
                 <td>ヘルメット</td>
                 <td><a href="https://amzn.asia/d/gq0ZEOd" class="check-link">https://amzn.asia/d/gq0ZEOd</a></td>
@@ -428,18 +392,36 @@
         });
 
         document.addEventListener("DOMContentLoaded", function () {
+            // カテゴリのアイテムを非表示にする関数
+            function hideCategoryItems(categoryIndex) {
+                var categoryItems = document.querySelectorAll('.category-items' + categoryIndex);
+                categoryItems.forEach(function (item) {
+                    item.style.display = 'none';
+                });
+            }
+
+            // カテゴリのクリックイベントリスナーを追加する関数
             function addCategoryClickListener(categoryIndex) {
+                // カテゴリのヘッダー要素を取得
                 var categoryHeader = document.querySelector('.category-header' + categoryIndex);
+                // カテゴリ内のアイテム要素を取得
                 var categoryItems = document.querySelectorAll('.category-items' + categoryIndex);
 
+                // カテゴリのヘッダーがクリックされたときの処理を定義
                 categoryHeader.addEventListener('click', function () {
+                    // カテゴリ内のすべてのアイテムに対して処理を実行
                     categoryItems.forEach(function (item) {
+                        // アイテムの表示状態をトグルする
                         item.style.display = (item.style.display === 'none') ? 'table-row' : 'none';
                     });
                 });
             }
 
+            // 0から8までのカテゴリに対してクリックイベントリスナーを追加
             for (let i = 0; i <= 8; i++) {
+                // 初期状態で非表示にする
+                hideCategoryItems(i);
+                // カテゴリのクリックイベントリスナーを追加
                 addCategoryClickListener(i);
             }
         });
