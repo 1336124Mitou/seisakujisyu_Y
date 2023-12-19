@@ -216,11 +216,12 @@ $dbh = null;
         <br>
 
         <!-- フィルターボタン -->
-        <td><input type="submit" name="filter" value="フィルター"></td>
+        <br>
+        <div>
+        <input type="submit" name="filter" value="確定" class="btn_18">
         <!-- リセットボタン -->
-        <form action="nagataku.php" method="POST">
-            <input type="submit" name="reset" value="リセット">
-        </form>
+            <input type="submit" name="reset" value="リセット" class="btn_19">
+        </div>
     </tr>
 </form>
 
