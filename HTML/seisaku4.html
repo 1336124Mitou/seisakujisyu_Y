@@ -300,13 +300,25 @@
 
         // スクロール位置に応じてフッターのスクロールボタンを制御
         window.onscroll = function () {
-            var scrollButton = document.querySelector('.scroll-to-top-button');
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollButton.style.display = 'block';
-            } else {
-                scrollButton.style.display = 'none';
-            }
-        };
+        var scrollButton = document.querySelector('.scroll-to-top-button');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollButton.style.display = 'block';
+        } else {
+            scrollButton.style.display = 'block'; // ここを 'none' から 'block' に変更
+        }
+    };
+
+    function scrollToTop() {
+        // メッセージフォームまでスクロール
+        document.getElementById('message-form').scrollIntoView({ behavior: 'smooth' });
+    }
+    window.onload = function() {
+        // スクロール位置がトップの場合、スクロールボタンを非表示にする
+        var scrollButton = document.querySelector('.scroll-to-top-button');
+        if (document.body.scrollTop === 0 && document.documentElement.scrollTop === 0) {
+            scrollButton.style.display = 'block';
+        }
+    }
     </script>
     <footer>
         <div class="footer-container">
