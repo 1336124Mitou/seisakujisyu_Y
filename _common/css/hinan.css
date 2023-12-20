@@ -154,10 +154,7 @@ ul li {
     display: inline-block;
     padding: 26px 10px 20px 10px;
 }
-a {
-    color: #fff;
-    text-transform: uppercase;
-}
+
 a[href="http://localhost/seisakujisyu_Y/HTML/src/higasinadaku.php"] {
     color: blue;
     text-transform: uppercase;
@@ -487,4 +484,8 @@ input[type=radio] {
     box-shadow: none;
     transform: translate(5px, 5px);
     color: #008039; /* 別の色に変更 */
+}
+
+a.name {
+    color: #000000;
 }
