@@ -494,3 +494,8 @@ a.name {
     color: #fff;
     text-transform: uppercase;
 }
+
+.footer-container a {
+    color: #fff;
+    text-transform: uppercase;
+}
