@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+
 <head>
     <meta charset="UTF-8">
     <title>防災宝典</title>
@@ -16,6 +17,7 @@
         padding-bottom: 50px;
     }
 
+
     .container {
         max-width: 800px;
         margin: 20px auto;
@@ -25,6 +27,7 @@
         overflow: hidden;
     }
 
+
     .card {
         margin: 20px;
         border: 1px solid #ddd;
@@ -33,9 +36,11 @@
         transition: transform 0.3s;
     }
 
+
     .card:hover {
         transform: scale(1.03);
     }
+
 
     .card-header {
         background-color: green;
@@ -46,12 +51,14 @@
         align-items: center;
     }
 
+
     .useful-section {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         margin-left: 5px;
     }
+
 
     .useful-button {
         cursor: pointer;
@@ -64,18 +71,22 @@
         transition: background-color 0.3s;
     }
 
+
     .useful-button:hover {
         background-color: purple;
     }
+
 
     .useful-count {
         color: #555;
         margin-left: 5px;
     }
 
+
     .card-body {
         padding: 15px;
     }
+
 
     #title-input,
     #username-input,
@@ -88,6 +99,7 @@
         box-sizing: border-box;
     }
 
+
     #send-button {
         background-color: green;
         color: #fff;
@@ -99,6 +111,7 @@
         margin: 0 auto;
         /* 中央に寄せるスタイル */
     }
+
 
     .terms {
         background-color: papayawhip;
@@ -114,10 +127,12 @@
         /* 最初は非表示 */
     }
 
+
     .terms p {
         font-size: 18px;
         margin-bottom: 10px;
     }
+
 
     .terms ol,
     .terms ul {
@@ -126,13 +141,16 @@
         margin: 0;
     }
 
+
     .terms li {
         margin-bottom: 10px;
     }
 
+
     .terms ul ul {
         margin-top: 5px;
     }
+
 
     .toggle-button {
         cursor: pointer;
@@ -142,22 +160,22 @@
         margin-top: 10px;
     }
 
+
     .scroll-to-top-button {
-    position: fixed;
-    bottom: 35px;
-    right: 35px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 12px 20px; 
-    border-radius: 50%; 
-    cursor: pointer;
-    display: none; /* 最初は非表示 */
-}
-
-
-
+        position: fixed;
+        bottom: 35px;
+        right: 35px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        /* 最初は非表示 */
+    }
 </style>
+
 
 <body>
     <header>
@@ -180,16 +198,24 @@
     <div class="container">
         <h2>体験談募集掲示板</h2>
 
+
         <!-- 追加: 投稿フォームへのスクロールボタン -->
         <button class="scroll-to-top-button" onclick="scrollToTop()">+</button>
 
+
         <div id="messages"></div>
+
 
         <form id="message-form">
             <input type="text" id="title-input" placeholder="タイトルを入力してください">
             <input type="text" id="username-input" placeholder="ユーザー名を入力してください">
             <textarea id="message-input" placeholder="ここに体験談を入力してください"></textarea>
             <button type="button" id="send-button" onclick="sendMessage()">送信</button>
+            <div style="text-align: center; margin-top: 10px;">
+                <label for="agree-checkbox">
+                    <input type="checkbox" id="agree-checkbox">利用規約に同意する
+                </label>
+            </div>
         </form>
         <div class="toggle-button" onclick="toggleTerms()">利用規約を表示/非表示</div>
         <div class="terms" id="terms">
@@ -228,6 +254,9 @@
 
 
 
+
+
+
     <script>
         function sendMessage() {
             var titleInput = document.getElementById('title-input');
@@ -237,21 +266,53 @@
             var username = usernameInput.value;
             var message = messageInput.value;
 
+
+            // チェックボックスの状態を確認
+            var agreeCheckbox = document.getElementById('agree-checkbox');
+            if (!agreeCheckbox.checked) {
+                alert('利用規約に同意しないとメッセージを送信できません。');
+                return;
+            }
+
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'save_data.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            var data = 'username=' + encodeURIComponent(username) +
+                '&title=' + encodeURIComponent(title) +
+                '&location=' + encodeURIComponent(location) +
+                '&message=' + encodeURIComponent(message);
+            xhr.send(data);
+
+
+
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert(xhr.responseText);
+                }
+            };
+
+
             if (title.trim() !== '' && username.trim() !== '' && message.trim() !== '') {
                 var messagesContainer = document.getElementById('messages');
                 var card = document.createElement('div');
                 card.className = 'card';
 
+
                 var cardHeader = document.createElement('div');
                 cardHeader.className = 'card-header';
                 cardHeader.textContent = title + ' - ' + username;
+
 
                 var cardBody = document.createElement('div');
                 cardBody.className = 'card-body';
                 cardBody.textContent = message;
 
+
                 var usefulSection = document.createElement('div');
                 usefulSection.className = 'useful-section';
+
 
                 var usefulButton = document.createElement('button');
                 usefulButton.className = 'useful-button';
@@ -262,41 +323,80 @@
                     usefulButton.textContent = '❤' + count;
                 });
 
+
                 var usefulCount = document.createElement('span');
                 usefulCount.className = 'useful-count';
                 usefulCount.textContent = '';
 
+
                 usefulSection.appendChild(usefulButton);
                 usefulSection.appendChild(usefulCount);
+
 
                 card.appendChild(cardHeader);
                 card.appendChild(cardBody);
                 card.appendChild(usefulSection);
 
+
                 messagesContainer.appendChild(card);
+
 
                 // メッセージを追加した後、入力欄をクリアする
                 titleInput.value = '';
                 usernameInput.value = '';
                 messageInput.value = '';
 
+
                 // メッセージが追加されたら、最下部までスクロール
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
 
                 // フッターのスクロールボタンを表示
                 document.querySelector('.scroll-to-top-button').style.display = 'block';
             }
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            var agreeCheckbox = document.getElementById('agree-checkbox');
+            var terms = document.getElementById('terms');
+
+
+            // チェックボックスの状態を初期化
+            agreeCheckbox.disabled = true;
+
+
+            // チェックボックスの状態を確認するための関数
+            function checkAgreeCheckboxState() {
+                // 利用規約が最下部にスクロールされたかを判定
+                var isScrolledToBottom = terms.scrollHeight - terms.clientHeight <= terms.scrollTop + 1;
+
+
+                // チェックボックスの状態を更新
+                agreeCheckbox.disabled = !isScrolledToBottom;
+            }
+
+
+            // 利用規約が表示されている場合にスクロール位置を確認し、チェックボックスの状態を更新
+            if (terms) {
+                terms.addEventListener('scroll', function () {
+                    checkAgreeCheckboxState();
+                });
+            }
+        });
+
+
+
 
         function toggleTerms() {
             var terms = document.getElementById('terms');
             terms.style.display = (terms.style.display === 'none' || terms.style.display === '') ? 'block' : 'none';
         }
 
+
         function scrollToTop() {
             // 投稿フォームまでスクロール
             document.getElementById('message-form').scrollIntoView({ behavior: 'smooth' });
         }
+
 
         // スクロール位置に応じてフッターのスクロールボタンを制御
         window.onscroll = function () {
@@ -304,16 +404,30 @@
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 scrollButton.style.display = 'block';
             } else {
-                scrollButton.style.display = 'none';
+                scrollButton.style.display = 'block'; // ここを 'none' から 'block' に変更
             }
         };
+
+
+        function scrollToTop() {
+            // メッセージフォームまでスクロール
+            document.getElementById('message-form').scrollIntoView({ behavior: 'smooth' });
+        }
+        window.onload = function () {
+            // スクロール位置がトップの場合、スクロールボタンを非表示にする
+            var scrollButton = document.querySelector('.scroll-to-top-button');
+            if (document.body.scrollTop === 0 && document.documentElement.scrollTop === 0) {
+                scrollButton.style.display = 'block';
+            }
+        }
     </script>
     <footer>
         <div class="footer-container">
+
 
         </div>
     </footer>
 </body>
 
-</html>
 
+</html>

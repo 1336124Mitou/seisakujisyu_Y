@@ -217,6 +217,18 @@
         /* ホバー時の色も変更 */
         border-color: #218838;
     }
+    .scroll-to-top-button {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px; 
+    border-radius: 50%; 
+    cursor: pointer;
+    display: none; /* 最初は非表示 */
+}
 </style>
 
 
@@ -242,6 +254,7 @@
     </nav>
     <div class="container">
         <h2>ボランティア募集掲示板</h2>
+        <button class="scroll-to-top-button" onclick="scrollToTop()">+</button>
         <div id="messages"></div>
 
 
@@ -398,8 +411,10 @@
                 messageInput.value = '';
 
 
-                // メッセージが追加されたら、一番下にスクロール
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                // フッターのスクロールボタンを表示
+                document.querySelector('.scroll-to-top-button').style.display = 'block';
             }
         }
         function toggleResolveStatus(messageId) {
@@ -532,6 +547,33 @@
 
             }
         }
+        function scrollToTop() {
+            // 投稿フォームまでスクロール
+            document.getElementById('message-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // スクロール位置に応じてフッターのスクロールボタンを制御
+        window.onscroll = function () {
+        var scrollButton = document.querySelector('.scroll-to-top-button');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollButton.style.display = 'block';
+        } else {
+            scrollButton.style.display = 'block'; // ここを 'none' から 'block' に変更
+        }
+    };
+
+    function scrollToTop() {
+        // メッセージフォームまでスクロール
+        document.getElementById('message-form').scrollIntoView({ behavior: 'smooth' });
+    }
+    window.onload = function() {
+        // スクロール位置がトップの場合、スクロールボタンを非表示にする
+        var scrollButton = document.querySelector('.scroll-to-top-button');
+        if (document.body.scrollTop === 0 && document.documentElement.scrollTop === 0) {
+            scrollButton.style.display = 'block';
+        }
+    }
+</script>
     </script>
 
     <footer>
