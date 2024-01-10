@@ -489,3 +489,13 @@ input[type=radio] {
 a.name {
     color: #000000;
 }
+
+.globalnav a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.footer-container a {
+    color: #fff;
+    text-transform: uppercase;
+}
