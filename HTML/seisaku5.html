@@ -429,42 +429,42 @@
         // ウィンドウが読み込みを完了したときに発火するイベントリスナー
         window.addEventListener('load', function() {
 
-        // 'coding0' から 'coding58' までのidを持つ要素への参照を含む配列 'c' を作成
-        var c = Array.from({ length: 59 }, (_, i) => document.getElementById('coding' + i));
+            // 'coding0' から 'coding58' までのidを持つ要素への参照を含む配列 'c' を作成
+            var c = Array.from({ length: 59 }, (_, i) => document.getElementById('coding' + i));
 
-        // チェックボックスの状態を格納するための変数 'chklist' を宣言
-        var chklist;
+            // チェックボックスの状態を格納するための変数 'chklist' を宣言
+            var chklist;
 
-        // ドキュメントにクッキーが存在するか確認
-        if (document.cookie) {
-            // クッキーが存在する場合、クッキー文字列を','を区切り文字として配列に分割
-            chklist = document.cookie.split(",");
-        };
+            // ドキュメントにクッキーが存在するか確認
+            if (document.cookie) {
+                // クッキーが存在する場合、クッキー文字列を','を区切り文字として配列に分割
+                chklist = document.cookie.split(",");
+            };
 
-        // 配列 'c' の各要素に対して繰り返し処理を行う
-        c.forEach(function(ci, i) {
-            // 'chklist' が存在し、現在のチェックボックスの状態がtrueである場合、チェックボックスをチェック済みに設定
-            if (chklist && chklist[i] === 'true') ci.checked = true;
+            // 配列 'c' の各要素に対して繰り返し処理を行う
+            c.forEach(function(ci, i) {
+                // 'chklist' が存在し、現在のチェックボックスの状態がtrueである場合、チェックボックスをチェック済みに設定
+                if (chklist && chklist[i] === 'true') ci.checked = true;
 
-            // 各チェックボックスにクリックイベントリスナーを追加
-            ci.addEventListener('click', function() {
-                // 各チェックボックスの状態を格納するための空の配列 'x' を宣言
-                var x = [];
+                // 各チェックボックスにクリックイベントリスナーを追加
+                ci.addEventListener('click', function() {
+                    // 各チェックボックスの状態を格納するための空の配列 'x' を宣言
+                    var x = [];
 
-                // 配列 'c' の各要素に対して繰り返し処理を行う
-                c.forEach(function(cj) {
-                    // 各チェックボックスの状態を配列 'x' に追加
-                    x.push(cj.checked);
+                    // 配列 'c' の各要素に対して繰り返し処理を行う
+                    c.forEach(function(cj) {
+                        // 各チェックボックスの状態を配列 'x' に追加
+                        x.push(cj.checked);
+                    });
+
+                    // クッキーの有効期限を表す新しいDateオブジェクト 'expire' を作成
+                    var expire = new Date();
+                    expire.setTime(expire.getTime() + 1000 * 3600 * 24);
+
+                    // 全てのチェックボックスの状態と有効期限を指定してドキュメントのクッキーを設定
+                    document.cookie = x.join(',') + ',; expires=' + expire.toUTCString();
                 });
-
-                // クッキーの有効期限を表す新しいDateオブジェクト 'expire' を作成
-                var expire = new Date();
-                expire.setTime(expire.getTime() + 1000 * 3600 * 24);
-
-                // 全てのチェックボックスの状態と有効期限を指定してドキュメントのクッキーを設定
-                document.cookie = x.join(',') + ',; expires=' + expire.toUTCString();
             });
-        });
         });
 </script>
 
