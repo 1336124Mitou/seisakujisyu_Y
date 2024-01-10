@@ -141,7 +141,6 @@ $dbh = null;
                 <li><a href="../seisaku3.html" class="btn4">ボランティア募集</a></li>
                 <li><a href="../seisaku4.html" class="btn4">掲示板</a></li>
                 <li><a href="../seisaku5.html" class="btn4">チェックリスト</a></li>
-                <li><a href="../src/seisaku6.html" class="btn4">ログイン</a></li>
             </ul>
         </div>
     </nav>
