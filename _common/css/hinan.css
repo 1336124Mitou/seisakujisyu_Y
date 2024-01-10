@@ -156,7 +156,6 @@ ul li {
 }
 
 a[href="http://localhost/seisakujisyu_Y/HTML/src/higasinadaku.php"] {
-    color: blue;
     text-transform: uppercase;
 }
 body {
@@ -484,6 +483,28 @@ input[type=radio] {
     box-shadow: none;
     transform: translate(5px, 5px);
     color: #008039; /* 別の色に変更 */
+}
+
+.btn_23 {
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #eb6877; /* 別の色に変更 */
+    border: 3px solid #eb6877; /* 別の色に変更 */
+    box-shadow: 5px 5px #eb6877; /* 別の色に変更 */
+    transition: 0.3s ease-in-out;
+}
+
+.btn_23:hover {
+    box-shadow: none;
+    transform: translate(5px, 5px);
+    color: #ff5733; /* 別の色に変更 */
 }
 
 a.name {

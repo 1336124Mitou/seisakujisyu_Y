@@ -164,6 +164,9 @@ $dbh = null;
             <td><input type="submit" name="search" value="検索" class="btn_22"></td>
         </tr>
     </table>
+    <?php if (isset($_POST["search"])) {?> 
+        <a href="http://localhost/seisakujisyu_Y/HTML/src/higasinadaku.php" class="btn_23" name="reset">リセット</a>
+    <?php } ?>
 </form>
 <br />
 <!--検索解除-->
