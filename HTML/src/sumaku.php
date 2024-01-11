@@ -164,12 +164,12 @@ $dbh = null;
             <td><input type="submit" name="search" value="検索" class="btn_22"></td>
         </tr>
     </table>
+    <?php if (isset($_POST["search"])) {?> 
+        <a href="http://localhost/seisakujisyu_Y/HTML/src/sumaku.php" class="btn_23" name="reset">リセット</a>
+    <?php } ?>
 </form>
 <br />
-<!--検索解除-->
-<?php if (isset($_POST["search"])) {?>
-<a href="http://localhost/seisakujisyu_Y/HTML/src/sumaku.php">検索を解除</a><br />
-<?php } ?>
+
 <p>○ その災害時に利用できる施設<br>
 × 原則利用できない施設<br>
 ― その災害による避難を想定していない施設<br></p>

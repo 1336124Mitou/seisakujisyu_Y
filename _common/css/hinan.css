@@ -492,7 +492,7 @@ input[type=radio] {
     text-decoration: none;
     position: relative;
     width: 120px;
-    padding: 1rem 4rem;
+    padding: 1rem 2rem;
     font-weight: bold;
     border-radius: 10px;
     color: #eb6877; /* 別の色に変更 */

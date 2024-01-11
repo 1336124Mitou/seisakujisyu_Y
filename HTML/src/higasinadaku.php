@@ -169,10 +169,7 @@ $dbh = null;
     <?php } ?>
 </form>
 <br />
-<!--検索解除-->
-<?php if (isset($_POST["search"])) {?>
-<a href="http://localhost/seisakujisyu_Y/HTML/src/higasinadaku.php">検索を解除</a><br />
-<?php } ?>
+
 <p>○ その災害時に利用できる施設<br>
 × 原則利用できない施設<br>
 ― その災害による避難を想定していない施設<br></p>
