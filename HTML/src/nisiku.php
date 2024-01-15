@@ -161,7 +161,7 @@ $dbh = null;
         </tr>
     </table>
     <?php if (isset($_POST["search"])) {?> 
-        <a href="http://localhost/seisakujisyu_Y/HTML/src/nisiku.php" class="btn_23" name="reset">リセット</a>
+        <a href="http://localhost/seisakujisyu_Y/HTML/src/nisiku.php" class="btn_23" name="reset">検索解除</a>
     <?php } ?>
 </form>
 <br />
