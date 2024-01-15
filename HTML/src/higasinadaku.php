@@ -188,14 +188,13 @@ $dbh = null;
         text-align: left;
     }
 </style>  
-<p><label class="setumei" >〇</label> その災害時に利用できる施設<br>
-<label class="setumei" >×</label> 原則利用できない施設<br>
-<label class="setumei" >ー</label> その災害による避難を想定していない施設<br></p>
+
 <h2>○屋内の緊急避難場所（土砂災害、洪水、津波のとき）、避難所</h2>
 
 <!-- ラジオボタンのフォーム -->
 <form action="higasinadaku.php" method="POST">
-    <table>
+<div style="display: flex; justify-content: space-between;">
+    <table class="abc">
         <tr>
             <th>土砂災害</th>
                 <td><input type="radio" name="dosha" value="○" id="a" <?php if (isset($dosha) && $dosha === '○') echo 'checked'; ?>><label class="dosha" for="a">〇</label>
@@ -231,6 +230,11 @@ $dbh = null;
                 <input type="radio" name="petto" value="-" id="o" <?php if (isset($petto) && $petto === '-') echo 'checked'; ?>><label class="petto" for="o">ー</label></td>
         </tr>
     </table>
+
+    <p style="text-align: left;"><label class="setumei" >〇</label> その災害時に利用できる施設<br>
+<label class="setumei" >×</label> 原則利用できない施設<br>
+<label class="setumei" >-</label> その災害による避難を想定していない施設<br></p>
+</div>
      <!-- フィルターボタン -->
     <div>
         <input type="submit" name="filter" value="確定" class="btn_18">

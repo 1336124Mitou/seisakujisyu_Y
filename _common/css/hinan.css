@@ -176,6 +176,10 @@ table, th, td {
     border: 1px solid #ddd;
 }
 
+table.abc {
+    max-width: 350;
+}
+
 th, td {
     padding: 10px;
     text-align: left;
@@ -327,7 +331,7 @@ input[type=radio] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 750px;
   }
   
   /* ラベルスタイル */
