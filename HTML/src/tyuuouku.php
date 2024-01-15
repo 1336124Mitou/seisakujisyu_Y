@@ -164,7 +164,7 @@ $dbh = null;
         </tr>
     </table>
     <?php if (isset($_POST["search"])) {?> 
-        <a href="http://localhost/seisakujisyu_Y/HTML/src/tyuuouku.php" class="btn_23" name="reset">リセット</a>
+        <a href="http://localhost/seisakujisyu_Y/HTML/src/tyuuouku.php" class="btn_23" name="reset">検索解除</a>
     <?php } ?>
 </form>
 <br />
@@ -186,7 +186,7 @@ $dbh = null;
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <h3>洪水</><br>
+            <h3>洪水</h3><br>
             <input type="radio" name="kouzui" value="○" id="d" <?php if (isset($kouzui) && $kouzui === '○') echo 'checked'; ?>><label class="kouzui" for="d">〇</label>
             <input type="radio" name="kouzui" value="×" id="e" <?php if (isset($kouzui) && $kouzui === '×') echo 'checked'; ?>><label class="kouzui" for="e">✕</label>
             <input type="radio" name="kouzui" value="-" id="f" <?php if (isset($kouzui) && $kouzui === '-') echo 'checked'; ?>><label class="kouzui" for="f">ー</label>
