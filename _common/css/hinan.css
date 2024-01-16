@@ -177,7 +177,7 @@ table, th, td {
 }
 
 table.abc {
-    max-width: 350;
+    max-width: 350px;
 }
 
 th, td {

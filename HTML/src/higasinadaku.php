@@ -277,7 +277,8 @@ $dbh = null;
 
 <!-- ラジオボタンのフォーム -->
 <form action="higasinadaku.php" method="POST">
-    <table>
+<div style="display: flex; justify-content: space-between;">
+    <table class="abc">
         <tr>
             <th>津波</th>
             <td><input type="radio" name="tunami1" value="○" id="p" <?php if (isset($tunami1) && $tunami1 === '○') echo 'checked'; ?>><label class="tunami1" for="p">〇</label>
@@ -299,6 +300,10 @@ $dbh = null;
             <input type="radio" name="petto1" value="-" id="x" <?php if (isset($petto1) && $petto1 === '-') echo 'checked'; ?>><label class="petto1" for="x">ー</label></td>
         </tr>
     </table>
+    <p style="text-align: left;"><label class="setumei" >〇</label> その災害時に利用できる施設<br>
+    <label class="setumei" >×</label> 原則利用できない施設<br>
+    <label class="setumei" >-</label> その災害による避難を想定していない施設<br></p>
+</div>
         <!-- フィルターボタン -->
         <div>
         <input type="submit" name="filter" value="確定" class="btn_20">
