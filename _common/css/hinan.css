@@ -389,6 +389,7 @@ input[type=radio] {
 }
 
 .btn_18 {
+    background-color: white;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -412,6 +413,7 @@ input[type=radio] {
 }
 
 .btn_19 {
+    background-color: white;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -434,6 +436,7 @@ input[type=radio] {
 }
 
 .btn_20 {
+    background-color: white;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -457,6 +460,7 @@ input[type=radio] {
 }
 
 .btn_21 {
+    background-color: white;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -479,6 +483,7 @@ input[type=radio] {
 }
 
 .btn_22 {
+    background-color: white;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -500,6 +505,7 @@ input[type=radio] {
     color: #008039; /* 別の色に変更 */
 }
 
+
 .btn_23 {
     white-space: nowrap;
     text-align: center;
@@ -507,7 +513,7 @@ input[type=radio] {
     text-decoration: none;
     position: relative;
     width: 120px;
-    padding: 1rem 2rem;
+    padding: 0.6rem 2rem;
     font-weight: bold;
     border-radius: 10px;
     color: #eb6877; /* 別の色に変更 */
