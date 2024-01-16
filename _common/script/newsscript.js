@@ -16,6 +16,15 @@ async function fetchDisasterNews() {
         const newsListDiv = document.getElementById('newsList');
 
         data.articles.forEach(article => {
+            // 特定の言葉を含む記事をはじく条件を追加
+            const forbiddenWords = ['バカ', '敗北'];
+            const containsForbiddenWord = forbiddenWords.some(word => article.title.includes(word) || article.description.includes(word));
+
+            // 特定の言葉が含まれている場合はスキップ
+            if (containsForbiddenWord) {
+                return;
+            }
+
             const newsItem = document.createElement('div');
             newsItem.classList.add('news-item');
             newsItem.innerHTML = `
