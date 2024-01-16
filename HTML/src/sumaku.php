@@ -162,11 +162,11 @@ $dbh = null;
                 </select>
             </td>
             <td><input type="submit" name="search" value="検索" class="btn_22"></td>
+            <?php if (isset($_POST["search"])) {?> 
+        <td><a href="http://localhost/seisakujisyu_Y/HTML/src/sumaku.php" class="btn_23" name="reset">検索解除</a></td>
+    <?php } ?>
         </tr>
     </table>
-    <?php if (isset($_POST["search"])) {?> 
-        <a href="http://localhost/seisakujisyu_Y/HTML/src/sumaku.php" class="btn_23" name="reset">検索解除</a>
-    <?php } ?>
 </form>
 <br />
 <style>
