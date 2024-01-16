@@ -191,7 +191,7 @@ $dbh = null;
 <h2>○屋内の緊急避難場所（土砂災害、洪水、津波のとき）、避難所</h2>
 
 <!-- ラジオボタンのフォーム -->
-<form action="higasinadaku.php" method="POST">
+<form action="tyuuouku.php" method="POST">
 <div style="display: flex; justify-content: space-between;">
     <table class="abc">
         <tr>
@@ -275,7 +275,7 @@ $dbh = null;
 <h2>○屋外の緊急避難場所（津波、大火のとき）</h2>
 
 <!-- ラジオボタンのフォーム -->
-<form action="higasinadaku.php" method="POST">
+<form action="tyuuouku.php" method="POST">
 <div style="display: flex; justify-content: space-between;">
     <table class="abc">
         <tr>
